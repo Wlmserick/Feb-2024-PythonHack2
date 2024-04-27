@@ -1,22 +1,72 @@
-{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'styles.css' %}" />
-   <!-- <link rel="stylesheet" href="/static/styles.css" /> -->
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- MDB CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Hello, My name is Evans </h1>
+    <section class="vh-100" style="background-color: #C1CFEA;">
+        <div class="container py-5 h-100">
 
-  {{result}}
+            <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+                <div class="col-md-9 col-lg-7 col-xl-5">
 
-  <h1>Random Pet</h1>
-{{result2}}
-  <img src={{result2}} alt="random pet" />
-  
+                    <div class="card mb-4 gradient-custom" style="border-radius: 25px;">
+                        <div class="card-body p-4">
+
+                            <div id="demo1" data-mdb-carousel-init class="carousel slide" data-ride="carousel">
+                                <ul class="carousel-indicators mb-0">
+                                    <li data-target="#demo1" data-slide-to="0" class="active"></li>
+                                    <li data-target="#demo1" data-slide-to="1"></li>
+                                    <li data-target="#demo1" data-slide-to="2"></li>
+                                </ul>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="d-flex justify-content-between mb-4 pb-2">
+
+                                            <div>
+                                                <h3 class="text-muted mb-0">{{ weather.city }}</h3>
+                                                <h2 class="display-2"><strong>{{ weather.temperature }}°C</strong></h2>
+                                                <p class="text-muted mb-0">{{ weather.description }}</p>
+                                            </div>
+                                            <div>
+                                                <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" width="150px">
+                                            </div>
+                                        </div>
+                                      <hr>
+                                      <div class="d-flex justify-content-between">
+                                          <div>
+                                              <p class="text-muted mb-0"><i class="fas fa-tint"></i> Humidity: {{ weather.humidity }}%</p>
+                                              <p class="text-muted mb-0"><i class="fas fa-wind"></i> Wind Speed: {{ weather.wind_speed }} m/s</p>
+                                              
+                                          </div>
+                
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- MDB JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
 </body>
 </html>
